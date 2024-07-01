@@ -1,23 +1,38 @@
-document.addEventListener('DOMContentLoaded', function() {
+// scripts.js
+
+document.addEventListener("DOMContentLoaded", function() {
     const posts = [
         {
-            title: 'Benvenuti nel mio Blog',
-            content: 'Questo è il primo post del mio nuovo blog personale. Rimanete sintonizzati per ulteriori aggiornamenti!',
-            link: 'post1.html'
+            title: "Introduzione alla Matematica",
+            content: "La matematica è lo studio dei numeri, delle forme e dei modelli. È fondamentale per molte discipline scientifiche e tecniche.",
+            link: "post.html?id=1"
         },
         {
-            title: 'Come ho iniziato a programmare',
-            content: 'In questo post, parlerò di come ho iniziato il mio viaggio nel mondo della programmazione e darò alcuni consigli ai principianti.',
-            link: 'post2.html'
+            title: "Fondamenti di Informatica",
+            content: "L'informatica è lo studio dei computer e dei sistemi di elaborazione delle informazioni. Include la teoria, lo sviluppo del software e la gestione dei sistemi informatici.",
+            link: "post.html?id=2"
         }
     ];
 
-    const postsSection = document.getElementById('posts');
+    const postsSection = document.getElementById("posts");
     posts.forEach(post => {
-        const postElement = document.createElement('div');
-        postElement.classList.add('post');
-        
-        const postTitle = document.createElement('h3');
+        const postElement = document.createElement("div");
+        postElement.classList.add("post");
+
+        const postTitle = document.createElement("h3");
         postTitle.textContent = post.title;
-        
-        const postContent = document.createElement('
+
+        const postContent = document.createElement("p");
+        postContent.textContent = post.content;
+
+        const postLink = document.createElement("a");
+        postLink.href = post.link;
+        postLink.textContent = "Leggi di più";
+
+        postElement.appendChild(postTitle);
+        postElement.appendChild(postContent);
+        postElement.appendChild(postLink);
+
+        postsSection.appendChild(postElement);
+    });
+});
